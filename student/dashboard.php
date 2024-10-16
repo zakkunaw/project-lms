@@ -34,17 +34,17 @@ if(isset($_POST['enroll_course'])){
 }
 
 // Ambil semua kursus yang tersedia
-$sql_available_courses = "SELECT courses.*, users.username as instructor_name FROM courses 
-                         JOIN users ON courses.instructor_id = users.id";
+$sql_available_courses = "SELECT courses.*, users.username as instructor_name FROM courses JOIN users ON courses.instructor_id = users.id";
 $available_courses = $conn->query($sql_available_courses);
 
 // Ambil kursus yang telah diikuti oleh siswa
 $student_id = $_SESSION['user_id'];
-$sql_enrolled_courses = "SELECT courses.*, users.username as instructor_name FROM courses 
-                         JOIN enrollments ON courses.id = enrollments.course_id 
-                         JOIN users ON courses.instructor_id = users.id 
-                         WHERE enrollments.student_id = $student_id";
-$enrolled_courses = $conn->query($sql_enrolled_courses);
+$sql_enrolled_courses = "SELECT courses.*, users.username as instructor_name FROM courses JOIN enrollments ON courses.id = enrollments.course_id JOIN users ON courses.instructor_id = users.id WHERE enrollments.student_id = ?";
+$stmt_enrolled = $conn->prepare($sql_enrolled_courses);
+$stmt_enrolled->bind_param("i", $student_id);
+$stmt_enrolled->execute();
+$enrolled_courses = $stmt_enrolled->get_result();
+$stmt_enrolled->close();
 ?>
 
 <!DOCTYPE html>
@@ -60,10 +60,10 @@ $enrolled_courses = $conn->query($sql_enrolled_courses);
 
         <!-- Tampilkan pesan sukses atau error -->
         <?php if(isset($success)): ?>
-            <div class="alert alert-success"><?= $success ?></div>
+            <div class="alert alert-success"><?= htmlspecialchars($success) ?></div>
         <?php endif; ?>
         <?php if(isset($error)): ?>
-            <div class="alert alert-danger"><?= $error ?></div>
+            <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
         <!-- Kursus Tersedia -->
@@ -80,7 +80,7 @@ $enrolled_courses = $conn->query($sql_enrolled_courses);
                             <p class="card-text"><?= htmlspecialchars($course['description']) ?></p>
                             <p><strong>Instruktur:</strong> <?= htmlspecialchars($course['instructor_name']) ?></p>
                             <form method="POST" action="dashboard.php">
-                                <input type="hidden" name="course_id" value="<?= $course['id'] ?>">
+                                <input type="hidden" name="course_id" value="<?= htmlspecialchars($course['id']) ?>">
                                 <button type="submit" name="enroll_course" class="btn btn-primary">Enroll</button>
                             </form>
                         </div>
@@ -95,19 +95,23 @@ $enrolled_courses = $conn->query($sql_enrolled_courses);
             <div class="accordion" id="enrolledCoursesAccordion">
                 <?php while($course = $enrolled_courses->fetch_assoc()): ?>
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="heading<?= $course['id'] ?>">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnrolled<?= $course['id'] ?>" aria-expanded="false" aria-controls="collapseEnrolled<?= $course['id'] ?>">
+                        <h2 class="accordion-header" id="heading<?= htmlspecialchars($course['id']) ?>">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnrolled<?= htmlspecialchars($course['id']) ?>" aria-expanded="false" aria-control[...]
                                 <?= htmlspecialchars($course['title']) ?>
                             </button>
                         </h2>
-                        <div id="collapseEnrolled<?= $course['id'] ?>" class="accordion-collapse collapse" aria-labelledby="heading<?= $course['id'] ?>" data-bs-parent="#enrolledCoursesAccordion">
+                        <div id="collapseEnrolled<?= htmlspecialchars($course['id']) ?>" class="accordion-collapse collapse" aria-labelledby="heading<?= htmlspecialchars($course['id']) ?>" data-bs-parent="#enrolledCoursesAccordion">
                             <div class="accordion-body">
                                 <p><?= htmlspecialchars($course['description']) ?></p>
                                 <!-- Ambil bab dan sub-bab -->
                                 <?php
                                     $course_id = $course['id'];
-                                    $sql_chapters = "SELECT * FROM chapters WHERE course_id = $course_id ORDER BY chapter_number ASC";
-                                    $chapters = $conn->query($sql_chapters);
+                                    $sql_chapters = "SELECT * FROM chapters WHERE course_id = ? ORDER BY chapter_number ASC";
+                                    $stmt_chapters = $conn->prepare($sql_chapters);
+                                    $stmt_chapters->bind_param("i", $course_id);
+                                    $stmt_chapters->execute();
+                                    $chapters = $stmt_chapters->get_result();
+                                    $stmt_chapters->close();
                                 ?>
                                 <?php if($chapters->num_rows > 0): ?>
                                     <ul class="list-group">
@@ -117,8 +121,12 @@ $enrolled_courses = $conn->query($sql_enrolled_courses);
                                                 <!-- Ambil sub-bab -->
                                                 <?php
                                                     $chapter_id = $chapter['id'];
-                                                    $sql_sub_chapters = "SELECT * FROM sub_chapters WHERE chapter_id = $chapter_id ORDER BY id ASC";
-                                                    $sub_chapters = $conn->query($sql_sub_chapters);
+                                                    $sql_sub_chapters = "SELECT * FROM sub_chapters WHERE chapter_id = ? ORDER BY id ASC";
+                                                    $stmt_sub_chapters = $conn->prepare($sql_sub_chapters);
+                                                    $stmt_sub_chapters->bind_param("i", $chapter_id);
+                                                    $stmt_sub_chapters->execute();
+                                                    $sub_chapters = $stmt_sub_chapters->get_result();
+                                                    $stmt_sub_chapters->close();
                                                 ?>
                                                 <?php if($sub_chapters->num_rows > 0): ?>
                                                     <ul class="list-group mt-2">
@@ -126,10 +134,7 @@ $enrolled_courses = $conn->query($sql_enrolled_courses);
                                                             <?php
                                                                 // Cek apakah sub-bab dapat diakses
                                                                 // Cari semua sub-bab sebelum ini dan cek apakah kuis sudah dipenuhi
-                                                                $stmt_prev = $conn->prepare("SELECT sc.id, q.id as quiz_id FROM sub_chapters sc 
-                                                                                             LEFT JOIN quizzes q ON sc.id = q.sub_chapter_id 
-                                                                                             WHERE sc.chapter_id = ? AND sc.id <= ? 
-                                                                                             ORDER BY sc.id ASC");
+                                                                $stmt_prev = $conn->prepare("SELECT sc.id, q.id as quiz_id FROM sub_chapters sc LEFT JOIN quizzes q ON sc.id = q.sub_chapter_id WHERE sc.chapter_id = ? AND sc.id <= ? ORDER BY sc.id ASC");
                                                                 $stmt_prev->bind_param("ii", $chapter_id, $sub['id']);
                                                                 $stmt_prev->execute();
                                                                 $prev_subs = $stmt_prev->get_result();
@@ -153,7 +158,7 @@ $enrolled_courses = $conn->query($sql_enrolled_courses);
                                                             <li class="list-group-item">
                                                                 <?= htmlspecialchars($sub['title']) ?>
                                                                 <?php if($can_access): ?>
-                                                                    <a href="course_content.php?course_id=<?= $course['id'] ?>&sub_chapter_id=<?= $sub['id'] ?>" class="btn btn-sm btn-info float-end">Akses</a>
+                                                                    <a href="course_content.php?course_id=<?= htmlspecialchars($course['id']) ?>&sub_chapter_id=<?= htmlspecialchars($sub['id']) ?>" class="btn btn-sm btn-info float-end">Akses</a>
                                                                 <?php else: ?>
                                                                     <span class="badge bg-secondary float-end"><i class="bi bi-lock"></i> Terkunci</span>
                                                                 <?php endif; ?>

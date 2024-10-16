@@ -121,14 +121,21 @@ $courses = $conn->query($sql_courses);
                                     $sql_chapters = "SELECT * FROM chapters WHERE course_id = $course_id ORDER BY chapter_number ASC";
                                     $chapters = $conn->query($sql_chapters);
                                 ?>
-                                <form method="POST" action="add_chapter.php">
-                                    <input type="hidden" name="course_id" value="<?= $course['id'] ?>">
-                                    <div class="mb-3">
-                                        <label for="chapter_title_<?= $course['id'] ?>" class="form-label">Judul Bab</label>
-                                        <input type="text" class="form-control" id="chapter_title_<?= $course['id'] ?>" name="chapter_title" required>
-                                    </div>
-                                    <button type="submit" name="add_chapter" class="btn btn-secondary">Tambahkan Bab</button>
-                                </form>
+                                    <form method="POST" action="add_chapter.php">
+                                        <input type="hidden" name="course_id" value="<?= $course['id'] ?>">
+                                        <div class="mb-3">
+                                            <label for="chapter_title_<?= $course['id'] ?>" class="form-label">Judul Bab</label>
+                                            <input type="text" class="form-control" id="chapter_title_<?= $course['id'] ?>" name="chapter_title" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="chapter_content_<?= $course['id'] ?>" class="form-label">Konten Bab</label>
+                                            <textarea class="form-control" id="chapter_content_<?= $course['id'] ?>" name="chapter_content" required></textarea>
+                                            <script>
+                                                CKEDITOR.replace('chapter_content_<?= $course['id'] ?>');
+                                            </script>
+                                        </div>
+                                        <button type="submit" name="add_chapter" class="btn btn-secondary">Tambahkan Bab</button>
+                                    </form>
 
                                 <!-- Daftar bab -->
                                 <?php if($chapters->num_rows > 0): ?>

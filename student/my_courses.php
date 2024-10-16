@@ -28,7 +28,7 @@ $stmt->close();
 <head>
     <?php include '../includes/header.php'; ?>
     <title>My Courses - LMS</title>
-    <!-- Optional: Include Bootstrap Icons for gembok (lock) icon -->
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
@@ -53,7 +53,7 @@ $stmt->close();
                                 <?php endif; ?>
                                 <p><?= $course['description'] ?></p>
 
-                                <!-- Daftar Bab dan Sub-Bab -->
+                              
                                 <?php
                                     $course_id = $course['id'];
                                     $sql_chapters = "SELECT * FROM chapters WHERE course_id = ? ORDER BY chapter_number ASC";
@@ -65,6 +65,7 @@ $stmt->close();
                                 ?>
                                 <?php if($chapters->num_rows > 0): ?>
                                     <ul class="list-group">
+                                        <?php $first_chapter = true; ?>
                                         <?php while($chapter = $chapters->fetch_assoc()): ?>
                                             <li class="list-group-item">
                                                 <strong>Bab <?= $chapter['chapter_number'] ?>: <?= htmlspecialchars($chapter['title']) ?></strong>
@@ -84,40 +85,39 @@ $stmt->close();
                                                                 $sub_chapter_id = $sub['id'];
 
                                                                 // Cek apakah sub-bab ini dapat diakses
-                                                                // Logika:
-                                                                // 1. Semua sub-bab sebelumnya harus telah dipenuhi (kuis dijawab dengan benar)
-                                                                // 2. Sub-bab ini telah dibuka atau tidak
+                                                                $can_access = $first_chapter; // Bab pertama selalu dapat diakses langsung
 
-                                                                // Ambil semua sub-bab sebelumnya dalam bab ini
-                                                                $sql_prev_subs = "SELECT sc.id, q.id as quiz_id 
-                                                                                  FROM sub_chapters sc 
-                                                                                  LEFT JOIN quizzes q ON sc.id = q.sub_chapter_id 
-                                                                                  WHERE sc.chapter_id = ? AND sc.id <= ? 
-                                                                                  ORDER BY sc.id ASC";
-                                                                $stmt_prev = $conn->prepare($sql_prev_subs);
-                                                                $stmt_prev->bind_param("ii", $chapter_id, $sub_chapter_id);
-                                                                $stmt_prev->execute();
-                                                                $prev_subs = $stmt_prev->get_result();
-                                                                $can_access = true;
-                                                                while($prev = $prev_subs->fetch_assoc()){
-                                                                    if($prev['quiz_id']){
-                                                                        // Cek apakah kuis telah dipenuhi
-                                                                        $sql_check_quiz = "SELECT * FROM quiz_completions WHERE student_id = ? AND quiz_id = ? AND is_passed = 1";
-                                                                        $stmt_quiz = $conn->prepare($sql_check_quiz);
-                                                                        $stmt_quiz->bind_param("ii", $student_id, $prev['quiz_id']);
-                                                                        $stmt_quiz->execute();
-                                                                        $quiz_result = $stmt_quiz->get_result();
-                                                                        if($quiz_result->num_rows == 0){
-                                                                            $can_access = false;
+                                                                if (!$first_chapter) {
+                                                                    // Ambil semua sub-bab sebelumnya dalam bab ini
+                                                                    $sql_prev_subs = "SELECT sc.id, q.id as quiz_id 
+                                                                                      FROM sub_chapters sc 
+                                                                                      LEFT JOIN quizzes q ON sc.id = q.sub_chapter_id 
+                                                                                      WHERE sc.chapter_id = ? AND sc.id <= ? 
+                                                                                      ORDER BY sc.id ASC";
+                                                                    $stmt_prev = $conn->prepare($sql_prev_subs);
+                                                                    $stmt_prev->bind_param("ii", $chapter_id, $sub_chapter_id);
+                                                                    $stmt_prev->execute();
+                                                                    $prev_subs = $stmt_prev->get_result();
+                                                                    while($prev = $prev_subs->fetch_assoc()){
+                                                                        if($prev['quiz_id']){
+                                                                            // Cek apakah kuis telah dipenuhi
+                                                                            $sql_check_quiz = "SELECT * FROM quiz_completions WHERE student_id = ? AND quiz_id = ? AND is_passed = 1";
+                                                                            $stmt_quiz = $conn->prepare($sql_check_quiz);
+                                                                            $stmt_quiz->bind_param("ii", $student_id, $prev['quiz_id']);
+                                                                            $stmt_quiz->execute();
+                                                                            $quiz_result = $stmt_quiz->get_result();
+                                                                            if($quiz_result->num_rows == 0){
+                                                                                $can_access = false;
+                                                                                $quiz_result->free();
+                                                                                $stmt_quiz->close();
+                                                                                break;
+                                                                            }
                                                                             $quiz_result->free();
                                                                             $stmt_quiz->close();
-                                                                            break;
                                                                         }
-                                                                        $quiz_result->free();
-                                                                        $stmt_quiz->close();
                                                                     }
+                                                                    $stmt_prev->close();
                                                                 }
-                                                                $stmt_prev->close();
                                                             ?>
                                                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                                                 <?= htmlspecialchars($sub['title']) ?>
@@ -133,6 +133,7 @@ $stmt->close();
                                                     </ul>
                                                 <?php endif; ?>
                                             </li>
+                                            <?php $first_chapter = false; ?>
                                         <?php endwhile; ?>
                                     </ul>
                                 <?php else: ?>
