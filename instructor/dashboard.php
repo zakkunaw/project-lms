@@ -12,14 +12,18 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'instructor') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor Dashboard</title>
+       <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
     <?php include '../includes/header.php'; ?>
-    <?php include '../includes/navbar.php'; ?>
-
+    
+    <button class="btn" id="menu-toggle"><i class="fas fa-bars"></i></button>
+    
+    <div class="d-flex" id="wrapper">
+        <?php include '../includes/instruktur/navbar.php'; ?>
     <div class="container mt-5">
         <div class="jumbotron">
             <h1 class="display-4">Welcome, Instructor!</h1>
@@ -28,6 +32,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'instructor') {
             <p>This is your dashboard where you can manage your courses and students.</p>
             <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </div>
+    </div>
     </div>
 
     <?php include '../includes/footer.php'; ?>

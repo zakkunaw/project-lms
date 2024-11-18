@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Okt 2024 pada 06.57
+-- Waktu pembuatan: 23 Okt 2024 pada 07.14
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -54,8 +54,22 @@ CREATE TABLE `chapters` (
 --
 
 INSERT INTO `chapters` (`id`, `course_id`, `title`, `content`, `created_at`, `chapter_number`) VALUES
-(3, 12, 'Chapter 1 ', '<p>TATA CARA PENULISAN ARTIKEL ILMIAH</p>\\r\\n\\r\\n<p>1. PEDOMAN UMUM a. Naskah merupakan ringkasan hasil penelitian b. Naskah ditulis dengan huruf Time New Roman font 11. Panjang naskah sekitar 8&ndash;15 halaman dan diketik 1 spasi. c. Seting halaman adalah 2 kolom dengan equal with coloumn dan jarak antar kolom 5 mm, sedangkan Judul, Identitas Penulis, dan Abstract ditulis dalam 1 kolom. d. Ukuran kertas adalah A4 dengan lebar batas-batas tepi (margin) adalah 3,5 cm untuk batas atas, bawah dan kiri, sedang kanan adalah 2,0 cm. 2. SISTIMATIKA PENULISAN a. Bagian awal : judul, nama penulis, abstraksi. b. Bagian utama : berisi pendahuluan, Kajian literature dan pengembangan hipotesis (jika ada), cara/metode penelitian, hasil penelitian dan pembahasan, dan kesimpulan dan saran (jika ada). c. Bagian akhir : ucapan terima kasih (jika ada), keterangan simbol (jika ada), dan daftar pustaka. 3. JUDUL DAN NAMA PENULIS a. Judul dicetak dengan huruf besar/kapital, dicetak tebal (bold) dengan jenis huruf Times New Roman font 12, spasi tunggal dengan jumlah kata maksimum 15. b. Nama penulis ditulis di bawah judul tanpa gelar, tidak boleh disingkat, diawali dengan huruf kapital, tanpa diawali dengan kata &rdquo;oleh&rdquo;, u penulis kedua, ketiga dan seterusnya. c. Nama perguruan tinggi dan alamat surel (email) semua penulis ditulis di bawah nama penulis dengan huruf Times New Roman font 10.</p>\\r\\n', '2024-10-16 04:34:13', 1),
-(4, 12, 'Chapter 2', '<p>Template Artikel Ilmiah JUDUL DITULIS DENGAN FONT TIMES NEW ROMAN 12 CETAK TEBAL (MAKSIMUM 12 KATA) Mahasiswa1 , Pembimbing12 , Pembimbing23 (Font Times New Roman 10 Cetak Tebal dan NamaTidak Boleh Disingkat) 123Nama Prodi Nama Jurusan Fakultas Seni dan Desain 1Email penulis1@cde.ac.id 2Email penulis1@cde.ac.id 3Email penulis1@cde.ac.id [Font Times New Roman 10 spasi tunggal, tidak di cetak tebal] Abstract [Times New Roman 11 Cetak Tebal dan Miring] Abstrak bahasa Inggris/Indonesia. tidak boleh lebih dari 200 kata, boleh berkisar antara 80 - 100 kata, dalam satu alinea tanpa acuan (referensi) tanpa singkatan/akronim, dan tanpa footnote. Abstrak ditulis bukan dalam bentuk matematis, pertanyaan, dan dugaan. Abstrak berisi: tujuan penelitian, metode pelaksanaan, teknik analisis dan hasil kegiatan. Disajikan dengan rata kiri dan rata kanan, diketik dalam satu paragraph, dan ditulis tanpa menjorok (indent) pada awal kalimat. dengan font Times New Roman huruf 11, spasi tunggal,. Keywords: Maksimum 5 kata kunci dipisahkan dengan tanda koma. [Font Times New Roman 11 spasi tunggal, dan cetak miring] PENDAHULUAN Bagian pendahuluan berisi latar belakang, konteks penelitian, urgensi permasalahan, hasil kajian pustaka utama yang menjadi landasan penelitian, hasil-hasil riset sebelumnya yang relevan dengan kajian penelitian, dan tujuan penelitian. Penulis sangat disarankan menggunakan referensi artikel jurnal bereputasi dari terbitan terbaru untuk dijadikan landasan penelitian. Seluruh bagian pendahuluan disajikan secara terintegrasi dalam bentuk paragraf, tidak dibagi bagian perbagian yang ditulis dengan model pembaban laporan penelitian/skripsi/tesis disertasi. Panjang bagian pendahuluan 15&mdash;20 % dari total naskah. [Times New Roman, 11, normal, Spasi 1]. Lihat terbitan TANRA sebelumnya untuk menyesuaikan isi tulisan dan gaya selingkung. METODE Bagian Metode penelitian menjelaskan tentang: pendekatan, ruang lingkup atau objek, definisi operasional variable/deskripsi fokus penelitian, tempat, populasi dan sampel/informan, bahan dan alat utama, teknik pengumpulan data, dan teknik analisis data. Bagian ini berisi uraian prosedur dan langkah-langkah penelitian yang bersifat khas sesuai dengan topik yang dikaji. Panjang bagian metode berkisar 10&mdash;15 % total panjang naskah. Seluruh bagian meotode juga disajikan secara terintegrasi dalam bentuk paragraf, tidak dibagi bagian perbagian yang ditulis dengan model pembaban laporan penelitian/skripsi/tesis disertasi [Times New Roman, 11, normal, Spasi 1]. HASIL DAN PEMBAHASAN Hasil Sub judul di hasil, tuliskan dengan huruf kapital diawal kata saja, bold. Seperti bagian yang lain, tidak diberikan nomor, huruf, atau bullet. Bahasa asing, bahasa daerah, dan istilah tidak baku dicetak dengan huruf miring. Bagian hasil dan pembahasan menyajikan hasil penelitian. Hasil penelitian disajikan dengan lengkap dan sesuai ruang lingkup penelitian. Hasil penelitian dapat dilengkapi dengan tabel, grafik (gambar), dan/atau bagan. Tabel dan gambar diberi nomor dan judul. Hasil analisis data dimaknai dengan benar. Hasil penelitian dapat dilengkapi dengan tabel, grafik (gambar), dan/atau bagan. [Times New Roman, 11, normal]. Tabel 1. Judul Tabel dengan Bold, Spasi 1,</p>\\r\\n', '2024-10-16 04:35:57', 2);
+(16, 19, 'Materi 1', '', '2024-10-23 03:23:40', 1),
+(17, 19, 'Materi 2', '', '2024-10-23 03:23:50', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `chapters_guest`
+--
+
+CREATE TABLE `chapters_guest` (
+  `id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -76,7 +90,31 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `title`, `description`, `instructor_id`, `cover_image`) VALUES
-(12, 'Jikoshukai', 'Mengenal dan belajar lebih dalam bahasa jepang untuk pemula', 3, '670f420e971a1.jpeg');
+(19, 'Jikoshukai', '<p>-asd</p>', 3, '67186c32d8cd1.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `courses_guest`
+--
+
+CREATE TABLE `courses_guest` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `instructor_id` int(11) NOT NULL,
+  `cover_image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `courses_guest`
+--
+
+INSERT INTO `courses_guest` (`id`, `title`, `description`, `instructor_id`, `cover_image`, `created_at`) VALUES
+(2, 'Testing', 'Halo ini test', 0, '6715caad71dae_coverjapan3.jpeg', '2024-10-21 03:29:49'),
+(5, 'Gintsuki', 'Slss', 0, '6715eb570c608_coverjapan2.jpeg', '2024-10-21 05:49:11'),
+(6, 'Seirei mahou', 'Jmais', 0, '6715ec0433032_coverjapan.jpeg', '2024-10-21 05:52:04');
 
 -- --------------------------------------------------------
 
@@ -96,7 +134,7 @@ CREATE TABLE `enrollments` (
 --
 
 INSERT INTO `enrollments` (`id`, `student_id`, `course_id`, `enrolled_at`) VALUES
-(5, 2, 12, '2024-10-16 04:36:15');
+(12, 2, 19, '2024-10-23 03:28:00');
 
 -- --------------------------------------------------------
 
@@ -106,7 +144,7 @@ INSERT INTO `enrollments` (`id`, `student_id`, `course_id`, `enrolled_at`) VALUE
 
 CREATE TABLE `quizzes` (
   `id` int(11) NOT NULL,
-  `sub_chapter_id` int(11) NOT NULL,
+  `chapter_id` int(11) NOT NULL,
   `question` text NOT NULL,
   `option_a` varchar(255) NOT NULL,
   `option_b` varchar(255) NOT NULL,
@@ -119,9 +157,10 @@ CREATE TABLE `quizzes` (
 -- Dumping data untuk tabel `quizzes`
 --
 
-INSERT INTO `quizzes` (`id`, `sub_chapter_id`, `question`, `option_a`, `option_b`, `option_c`, `option_d`, `correct_option`) VALUES
-(3, 3, 'Jikoshukai adalah', 'kenal', 'perkenalan', 'jancuk', 'pemerintah', 'b'),
-(4, 4, 'TEST', 'TEST', 'test', 'tset', 'teset', 'a');
+INSERT INTO `quizzes` (`id`, `chapter_id`, `question`, `option_a`, `option_b`, `option_c`, `option_d`, `correct_option`) VALUES
+(23, 16, 'Where', 'why', 'Dimana', 'Kemana', 'Sama siapa', 'b'),
+(24, 16, 'Tsuki', 'suka', 'bulan', 'senang', 'rindu', 'b'),
+(25, 16, 'jajang myeon', 'korea', 'indonesia', 'jepang', 'taiwan', 'a');
 
 -- --------------------------------------------------------
 
@@ -136,16 +175,6 @@ CREATE TABLE `quiz_completions` (
   `is_passed` tinyint(1) NOT NULL,
   `completed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `quiz_completions`
---
-
-INSERT INTO `quiz_completions` (`id`, `student_id`, `quiz_id`, `is_passed`, `completed_at`) VALUES
-(1, 2, 3, 0, '2024-10-16 04:50:12'),
-(2, 2, 3, 1, '2024-10-16 04:50:19'),
-(3, 2, 3, 0, '2024-10-16 04:50:32'),
-(4, 2, 3, 1, '2024-10-16 04:55:34');
 
 -- --------------------------------------------------------
 
@@ -166,8 +195,23 @@ CREATE TABLE `sub_chapters` (
 --
 
 INSERT INTO `sub_chapters` (`id`, `chapter_id`, `title`, `content`, `created_at`) VALUES
-(3, 3, '1.1 Apa itu naruhodo', '<p>Template Artikel Ilmiah JUDUL DITULIS DENGAN FONT TIMES NEW ROMAN 12 CETAK TEBAL (MAKSIMUM 12 KATA) Mahasiswa1 , Pembimbing12 , Pembimbing23 (Font Times New Roman 10 Cetak Tebal dan NamaTidak Boleh Disingkat) 123Nama Prodi Nama Jurusan Fakultas Seni dan Desain 1Email penulis1@cde.ac.id 2Email penulis1@cde.ac.id 3Email penulis1@cde.ac.id [Font Times New Roman 10 spasi tunggal, tidak di cetak tebal] Abstract [Times New Roman 11 Cetak Tebal dan Miring] Abstrak bahasa Inggris/Indonesia. tidak boleh lebih dari 200 kata, boleh berkisar antara 80 - 100 kata, dalam satu alinea tanpa acuan (referensi) tanpa singkatan/akronim, dan tanpa footnote. Abstrak ditulis bukan dalam bentuk matematis, pertanyaan, dan dugaan. Abstrak berisi: tujuan penelitian, metode pelaksanaan, teknik analisis dan hasil kegiatan. Disajikan dengan rata kiri dan rata kanan, diketik dalam satu paragraph, dan ditulis tanpa menjorok (indent) pada awal kalimat. dengan font Times New Roman huruf 11, spasi tunggal,. Keywords: Maksimum 5 kata kunci dipisahkan dengan tanda koma. [Font Times New Roman 11 spasi tunggal, dan cetak miring] PENDAHULUAN Bagian pendahuluan berisi latar belakang, konteks penelitian, urgensi permasalahan, hasil kajian pustaka utama yang menjadi landasan penelitian, hasil-hasil riset sebelumnya yang relevan dengan kajian penelitian, dan tujuan penelitian. Penulis sangat disarankan menggunakan referensi artikel jurnal bereputasi dari terbitan terbaru untuk dijadikan landasan penelitian. Seluruh bagian pendahuluan disajikan secara terintegrasi dalam bentuk paragraf, tidak dibagi bagian perbagian yang ditulis dengan model pembaban laporan penelitian/skripsi/tesis disertasi. Panjang bagian pendahuluan 15&mdash;20 % dari total naskah. [Times New Roman, 11, normal, Spasi 1]. Lihat terbitan TANRA sebelumnya untuk menyesuaikan isi tulisan dan gaya selingkung. METODE Bagian Metode penelitian menjelaskan tentang: pendekatan, ruang lingkup atau objek, definisi operasional variable/deskripsi fokus penelitian, tempat, populasi dan sampel/informan, bahan dan alat utama, teknik pengumpulan data, dan teknik analisis data. Bagian ini berisi uraian prosedur dan langkah-langkah penelitian yang bersifat khas sesuai dengan topik yang dikaji. Panjang bagian metode berkisar 10&mdash;15 % total panjang naskah. Seluruh bagian meotode juga disajikan secara terintegrasi dalam bentuk paragraf, tidak dibagi bagian perbagian yang ditulis dengan model pembaban laporan penelitian/skripsi/tesis disertasi [Times New Roman, 11, normal, Spasi 1]. HASIL DAN PEMBAHASAN Hasil Sub judul di hasil, tuliskan dengan huruf kapital diawal kata saja, bold. Seperti bagian yang lain, tidak diberikan nomor, huruf, atau bullet. Bahasa asing, bahasa daerah, dan istilah tidak baku dicetak dengan huruf miring. Bagian hasil dan pembahasan menyajikan hasil penelitian. Hasil penelitian disajikan dengan lengkap dan sesuai ruang lingkup penelitian. Hasil penelitian dapat dilengkapi dengan tabel, grafik (gambar), dan/atau bagan. Tabel dan gambar diberi nomor dan judul. Hasil analisis data dimaknai dengan benar. Hasil penelitian dapat dilengkapi dengan tabel, grafik (gambar), dan/atau bagan. [Times New Roman, 11, normal]. Tabel 1. Judul Tabel dengan Bold, Spasi 1,</p>\\r\\n', '2024-10-16 04:34:59'),
-(4, 4, '2.2', '<p>PENDAHULUAN Bagian pendahuluan berisi latar belakang, konteks penelitian, urgensi permasalahan, hasil kajian pustaka utama yang menjadi landasan penelitian, hasil-hasil riset sebelumnya yang relevan dengan kajian penelitian, dan tujuan penelitian. Penulis sangat disarankan menggunakan referensi artikel jurnal bereputasi dari terbitan terbaru untuk dijadikan landasan penelitian. Seluruh bagian pendahuluan disajikan secara terintegrasi dalam bentuk paragraf, tidak dibagi bagian perbagian yang ditulis dengan model pembaban laporan penelitian/skripsi/tesis disertasi. Panjang bagian pendahuluan 15&mdash;20 % dari total naskah. [Times New Roman, 11, normal, Spasi 1]. Lihat terbitan TANRA sebelumnya untuk menyesuaikan isi tulisan dan gaya</p>\\r\\n', '2024-10-16 04:47:01');
+(22, 16, '1.1 Konten pertama', '<h2>Masalah pada Proses Pengembangan Aplikasi</h2>\\r\\n<p dir=\\\"ltr\\\"><em>Jalan-jalan ke kota Banjarmasin</em><em><br>Jangan lupa membeli bakmi</em><em><br>Hai para Developer dan IT Operations</em><em><br>Selamat datang di Dicoding Academy</em></p>\\r\\n<p dir=\\\"ltr\\\">Bagaimana pantunnya? Bagus, kan? Pantun di atas kami dedikasikan untuk Anda para Developer dan IT Operations (atau siapa pun yang telah memenuhi prasyarat kemampuan) yang siap menimba ilmu sebanyak-banyaknya di kelas ini.</p>\\r\\n<p dir=\\\"ltr\\\">Sebagai seorang Developer, IT Operations, atau apa pun jenis profesi IT yang digeluti saat ini, kami yakin nyaris separuh dari Anda mungkin sudah pernah berkecimpung dalam proses pengembangan aplikasi. Jika belum, setidaknya mungkin sedikit familier dengan proses tersebut.</p>\\r\\n<p dir=\\\"ltr\\\">Kita semua tahu bahwa proses pengembangan aplikasi itu kompleks, bahkan di beberapa kasus bisa jadi melibatkan banyak sekali pihak. Salah satu problem yang cukup menjengkelkan adalah dari model pengembangan aplikasi itu sendiri. Pada kenyataannya, masih banyak perusahaan dan organisasi yang menggunakan model tradisional nan penuh tantangan seperti Waterfall hingga kini. Memang apa masalahnya? Nanti coba kita ulik bersama.</p>\\r\\n<p dir=\\\"ltr\\\">Tidak hanya dari segi model, ada juga beberapa masalah lain yang menghantui proses pengembangan aplikasi, seperti arsitektur yang monolitik dan proses yang manual. Selain itu, struktur tim yang tertutup pun bisa menjadi&nbsp;<em>bottleneck&nbsp;</em>sehingga menyebabkan keterlambatan dan ketidakefisienan dalam proses penyajian (<em>delivery</em>) aplikasi. Faktor-faktor tersebut juga bisa mengakibatkan kegagalan tim dalam menghadirkan aplikasi yang stabil dan berkualitas tinggi. Tentu ini menjadi mimpi buruk bagi perusahaan.</p>\\r\\n<p dir=\\\"ltr\\\">Oke, supaya lebih detail dalam memahami masalah-masalah ini, mending langsung saja kita bedah satu per satu.</p>\\r\\n<p dir=\\\"ltr\\\">&nbsp;</p>\\r\\n<h3 dir=\\\"ltr\\\">Model Waterfall</h3>\\r\\n<p dir=\\\"ltr\\\">Waterfall adalah salah satu dari sekian banyak model proses pengembangan aplikasi (alias SDLC atau Software Development Life Cycle). Model Waterfall ini merupakan metode kerja yang menekankan fase-fase yang berurutan dan sistematis. Disebut waterfall lantaran proses yang terjadi dalam mengembangkan sebuah perangkat lunak atau aplikasi mengalir satu arah &ldquo;ke bawah&rdquo; bak air terjun.</p>\\r\\n<p dir=\\\"ltr\\\">Gambar di bawah ini adalah contoh sederhana dari penerapan model Waterfall.&nbsp;</p>\\r\\n<p dir=\\\"ltr\\\"><a class=\\\"zoomable-image-anchor\\\" title=\\\"dos:c9f9f9ce1d1a22b04ede00d0c9328b0820220517120257.jpeg\\\" href=\\\"https://www.dicoding.com/academies/382/tutorials/24073\\\" data-toggle=\\\"modal\\\" data-target=\\\"#image-zoom-modal\\\"><img class=\\\"fr-fic fr-dii\\\" src=\\\"https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/academy/dos:c9f9f9ce1d1a22b04ede00d0c9328b0820220517120257.jpeg\\\" alt=\\\"dos:c9f9f9ce1d1a22b04ede00d0c9328b0820220517120257.jpeg\\\"></a></p>\\r\\n<p dir=\\\"ltr\\\">Pada model waterfall, setiap fase saling bergantung satu sama lain. Kita tak bisa lanjut ke fase berikutnya sebelum fase yang sedang dikerjakan saat ini benar-benar selesai. Misalnya, kita tak bisa melakukan pengujian (<em>test</em>) jika proses pengodean (<em>code</em>) dari keseluruhan aplikasi belum beres. Begitu juga dengan proses deploy, kita tidak bisa men-<em>deploy</em>&nbsp;aplikasi jika keseluruhan komponen belum lolos fase pengujian (<em>test</em>). Begitu seterusnya.</p>', '2024-10-23 03:25:23'),
+(23, 16, '1.2 Ngoding', '<h3>Penjelasan Perubahan:</h3>\\r\\n<ol>\\r\\n<li><strong>Query untuk Kuis</strong>: Menggunakan <code>chapter_id</code> dari sub-chapter untuk mendapatkan kuis yang terkait. Hal ini mencegah pencarian kolom yang tidak ada (<code>sub_chapter_id</code>).</li>\\r\\n<li><strong>Validasi Input</strong>: Memastikan bahwa <code>course_id</code> dan <code>sub_chapter_id</code> tidak bernilai 0 sebelum melanjutkan.</li>\\r\\n<li><strong>Pengambilan Sub-Chapter</strong>: Memastikan sub-chapter yang diambil berasal dari kursus yang relevan.</li>\\r\\n</ol>\\r\\n<h3>3. <strong>Periksa Database</strong></h3>\\r\\n<p>Jika kolom <code>sub_chapter_id</code> diperlukan dalam logika Anda, pastikan untuk memperbarui skema database untuk menambahkannya ke tabel <code>quizzes</code>.</p>\\r\\n<p>Setelah melakukan perubahan ini, jalankan kembali aplikasi Anda dan lihat apakah error masih muncul. Jika ada masalah lebih lanjut, berikan detail error yang baru jika ada.</p>', '2024-10-23 03:26:22'),
+(24, 17, '2.2 gtre', '<h3>Penjelasan Perubahan:</h3>\\r\\n<ol>\\r\\n<li><strong>Query untuk Kuis</strong>: Menggunakan <code>chapter_id</code> dari sub-chapter untuk mendapatkan kuis yang terkait. Hal ini mencegah pencarian kolom yang tidak ada (<code>sub_chapter_id</code>).</li>\\r\\n<li><strong>Validasi Input</strong>: Memastikan bahwa <code>course_id</code> dan <code>sub_chapter_id</code> tidak bernilai 0 sebelum melanjutkan.</li>\\r\\n<li><strong>Pengambilan Sub-Chapter</strong>: Memastikan sub-chapter yang diambil berasal dari kursus yang relevan.</li>\\r\\n</ol>\\r\\n<h3>3. <strong>Periksa Database</strong></h3>\\r\\n<p>Jika kolom <code>sub_chapter_id</code> diperlukan dalam logika Anda, pastikan untuk memperbarui skema database untuk menambahkannya ke tabel <code>quizzes</code>.</p>\\r\\n<p>Setelah melakukan perubahan ini, jalankan kembali aplikasi Anda dan lihat apakah error masih muncul. Jika ada masalah lebih lanjut, berikan detail error yang baru jika ada.</p>', '2024-10-23 03:27:20');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `sub_chapters_guest`
+--
+
+CREATE TABLE `sub_chapters_guest` (
+  `id` int(11) NOT NULL,
+  `chapter_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -215,11 +259,24 @@ ALTER TABLE `chapters`
   ADD KEY `course_id` (`course_id`);
 
 --
+-- Indeks untuk tabel `chapters_guest`
+--
+ALTER TABLE `chapters_guest`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `course_id` (`course_id`);
+
+--
 -- Indeks untuk tabel `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`),
   ADD KEY `instructor_id` (`instructor_id`);
+
+--
+-- Indeks untuk tabel `courses_guest`
+--
+ALTER TABLE `courses_guest`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `enrollments`
@@ -234,7 +291,7 @@ ALTER TABLE `enrollments`
 --
 ALTER TABLE `quizzes`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `sub_chapter_id` (`sub_chapter_id`);
+  ADD KEY `quizzes_ibfk_1` (`chapter_id`);
 
 --
 -- Indeks untuk tabel `quiz_completions`
@@ -248,6 +305,13 @@ ALTER TABLE `quiz_completions`
 -- Indeks untuk tabel `sub_chapters`
 --
 ALTER TABLE `sub_chapters`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `chapter_id` (`chapter_id`);
+
+--
+-- Indeks untuk tabel `sub_chapters_guest`
+--
+ALTER TABLE `sub_chapters_guest`
   ADD PRIMARY KEY (`id`),
   ADD KEY `chapter_id` (`chapter_id`);
 
@@ -273,37 +337,55 @@ ALTER TABLE `access`
 -- AUTO_INCREMENT untuk tabel `chapters`
 --
 ALTER TABLE `chapters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT untuk tabel `chapters_guest`
+--
+ALTER TABLE `chapters_guest`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT untuk tabel `courses_guest`
+--
+ALTER TABLE `courses_guest`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `enrollments`
 --
 ALTER TABLE `enrollments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `quiz_completions`
 --
 ALTER TABLE `quiz_completions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT untuk tabel `sub_chapters`
 --
 ALTER TABLE `sub_chapters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT untuk tabel `sub_chapters_guest`
+--
+ALTER TABLE `sub_chapters_guest`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
@@ -329,6 +411,12 @@ ALTER TABLE `chapters`
   ADD CONSTRAINT `chapters_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
 
 --
+-- Ketidakleluasaan untuk tabel `chapters_guest`
+--
+ALTER TABLE `chapters_guest`
+  ADD CONSTRAINT `chapters_guest_ibfk_1` FOREIGN KEY (`course_id`) REFERENCES `courses_guest` (`id`) ON DELETE CASCADE;
+
+--
 -- Ketidakleluasaan untuk tabel `courses`
 --
 ALTER TABLE `courses`
@@ -345,7 +433,7 @@ ALTER TABLE `enrollments`
 -- Ketidakleluasaan untuk tabel `quizzes`
 --
 ALTER TABLE `quizzes`
-  ADD CONSTRAINT `quizzes_ibfk_1` FOREIGN KEY (`sub_chapter_id`) REFERENCES `sub_chapters` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `quizzes_ibfk_1` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `quiz_completions`
@@ -359,6 +447,12 @@ ALTER TABLE `quiz_completions`
 --
 ALTER TABLE `sub_chapters`
   ADD CONSTRAINT `sub_chapters_ibfk_1` FOREIGN KEY (`chapter_id`) REFERENCES `chapters` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `sub_chapters_guest`
+--
+ALTER TABLE `sub_chapters_guest`
+  ADD CONSTRAINT `sub_chapters_guest_ibfk_1` FOREIGN KEY (`chapter_id`) REFERENCES `chapters_guest` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

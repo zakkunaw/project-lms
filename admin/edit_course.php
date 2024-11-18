@@ -97,6 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+    
+    <button class="btn" id="menu-toggle"><i class="fas fa-bars"></i></button>
+    
+    <div class="d-flex" id="wrapper">
     <?php include '../includes/navbar.php'; ?>
     <div class="container mt-5">
         <h2>Edit Course</h2>
@@ -148,6 +152,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <button type="submit" class="btn btn-primary">Perbarui Kursus</button>
             <a href="manage_courses.php" class="btn btn-secondary">Kembali</a>
         </form>
+    </div>
     </div>
     
     <?php include '../includes/footer.php'; ?>

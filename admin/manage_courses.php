@@ -52,8 +52,13 @@ $stmt_courses->close();
     <!-- Include Bootstrap CSS if not included in header.php -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
-    <?php include '../includes/navbar.php'; ?>
+    <!-- Tombol Hamburger untuk mobile -->
+    <button class="btn" id="menu-toggle"><i class="fas fa-bars"></i></button>
+    
+    <div class="d-flex" id="wrapper">
+        <?php include '../includes/navbar.php'; ?>
     <div class="container mt-5">
         <h2>Manage Courses</h2>
         
@@ -111,7 +116,7 @@ $stmt_courses->close();
             </tbody>
         </table>
     </div>
-    
+    </div>
     <?php include '../includes/footer.php'; ?>
     
     <!-- Include jQuery and Bootstrap JS if not included in footer.php -->

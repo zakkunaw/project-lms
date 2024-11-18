@@ -1,0 +1,427 @@
+ .service-card {
+     background-color: #fff;
+     border-radius: 10px;
+     padding: 20px;
+     text-align: center;
+     margin-bottom: 20px;
+     border: 2px solid #4F64A9;
+     transition: background-color 0.3s, color 0.3s;
+     cursor: pointer;
+ }
+
+ .service-card h3 {
+     font-size: 1.5rem;
+     margin-top: 10px;
+     color: #4F64A9;
+ }
+
+ .service-card p {
+     font-size: 1rem;
+     color: #6c757d;
+ }
+
+ .service-card i {
+     font-size: 2rem;
+     color: #4F64A9;
+ }
+
+ .service-card:hover,
+ .service-card.active {
+     background-color: #4F64A9;
+     color: #fff;
+ }
+
+ .service-card:hover h3,
+ .service-card:hover p,
+ .service-card:hover i,
+ .service-card.active h3,
+ .service-card.active p,
+ .service-card.active i {
+     color: #fff;
+ }
+
+ .highlight {
+     background-color: #4F64A9;
+     color: #fff;
+ }
+
+ .highlight h3,
+ .highlight p,
+ .highlight i {
+     color: #fff;
+ }
+
+ .section-title {
+     font-size: 2rem;
+     margin-bottom: 20px;
+     color: #4F64A9;
+ }
+
+ .section-subtitle {
+     font-size: 1.25rem;
+     margin-bottom: 40px;
+     color: #4F64A9;
+ }
+
+ /* PENGAJAR */
+ .pengajar-hatese {
+     text-align: center;
+     padding: 50px 0;
+ }
+
+ .pengajar-hatese h2 {
+     color: #6c63ff;
+     font-size: 24px;
+     margin-bottom: 10px;
+ }
+
+ .pengajar-hatese p {
+     color: #888;
+     font-size: 16px;
+     margin-bottom: 40px;
+ }
+
+ .carousel-container-pengajar {
+     position: relative;
+     overflow: hidden;
+ }
+
+ .carousel-pengajar {
+     display: flex;
+     transition: transform 0.5s ease;
+     align-items: stretch;
+     /* Membuat card memiliki tinggi yang sama */
+ }
+
+ .card-pengajar {
+     border: none;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     margin: 0 15px;
+     min-width: 300px;
+     /* Tetapkan lebar minimum */
+     flex: 1;
+     /* Agar semua card memiliki ukuran yang sama */
+     display: flex;
+     flex-direction: column;
+     /* Membuat footer berada di bawah */
+     box-sizing: border-box;
+ }
+
+ .card-body-pengajar {
+     padding: 30px;
+     position: relative;
+     flex-grow: 1;
+     /* Agar card body mengisi ruang yang tersisa */
+ }
+
+ .card-body-pengajar::before {
+     content: '“';
+     font-size: 40px;
+     color: #6c63ff;
+     position: absolute;
+     top: 20px;
+     left: 20px;
+ }
+
+ .card-body-pengajar p {
+     color: #888;
+     font-size: 14px;
+     margin-top: 40px;
+ }
+
+ .card-footer-pengajar {
+     background-color: transparent;
+     border-top: none;
+     text-align: center;
+     padding: 20px 0;
+     margin-top: auto;
+     /* Menyematkan footer di bagian bawah card */
+ }
+
+ .card-footer-pengajar img {
+     border-radius: 50%;
+     width: 60px;
+     height: 60px;
+     margin: 0 auto;
+     /* Menengahkan gambar */
+     display: block;
+     /* Membuat gambar block-level agar margin auto berfungsi */
+ }
+
+ .card-footer-pengajar h5 {
+     font-size: 16px;
+     margin-bottom: 5px;
+ }
+
+ .card-footer-pengajar .social-icons-pengajar a {
+     color: #fff;
+     margin: 0 5px;
+     font-size: 16px;
+ }
+
+ .card-footer-pengajar .social-icons-pengajar a:hover {
+     color: #ddd;
+ }
+
+ .card-green-pengajar .card-footer-pengajar {
+     background-color: #00c853;
+     color: #fff;
+ }
+
+ .card-purple-pengajar .card-footer-pengajar {
+     background-color: #6200ea;
+     color: #fff;
+ }
+
+ .card-blue-pengajar .card-footer-pengajar {
+     background-color: #2962ff;
+     color: #fff;
+ }
+
+ .carousel-button-pengajar {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     background-color: rgba(0, 0, 0, 0.5);
+     color: #fff;
+     border: none;
+     padding: 10px;
+     cursor: pointer;
+     z-index: 1;
+ }
+
+ .carousel-button-pengajar.left {
+     left: 10px;
+ }
+
+ .carousel-button-pengajar.right {
+     right: 10px;
+ }
+
+ /* roadmap */
+ .header-roadmap {
+     text-align: center;
+     margin-top: 20px;
+ }
+
+ .header-roadmap h1 {
+     font-size: 24px;
+     font-weight: bold;
+ }
+
+ .header-roadmap p {
+     font-size: 16px;
+     color: #666;
+ }
+
+ .roadmap {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     margin-top: 40px;
+ }
+
+ .column-roadmap {
+     flex: 1;
+     padding: 20px;
+     text-align: center;
+     min-width: 300px;
+ }
+
+ .column-roadmap h3 {
+     font-size: 18px;
+     font-weight: bold;
+     padding: 10px;
+     border-radius: 20px;
+     display: inline-block;
+     margin-bottom: 20px;
+ }
+
+ .now-roadmap h3 {
+     background-color: #f8d7da;
+     color: #721c24;
+ }
+
+ .next-roadmap h3 {
+     background-color: #d1ecf1;
+     color: #0c5460;
+ }
+
+ .future-roadmap h3 {
+     background-color: #fff3cd;
+     color: #856404;
+ }
+
+ .card-roadmap {
+     background-color: #fff;
+     border: none;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     margin-bottom: 20px;
+ }
+
+ .card-body-roadmap {
+     padding: 20px;
+ }
+
+ .card-title-roadmap {
+     font-size: 16px;
+     font-weight: bold;
+ }
+
+ .card-text-roadmap {
+     font-size: 14px;
+     color: #666;
+ }
+
+ .info-roadmap {
+     text-align: right;
+     margin-top: 20px;
+     margin-right: 20px;
+ }
+
+ .info-roadmap p {
+     margin: 0;
+     font-size: 14px;
+     color: #666;
+ }
+
+ /* TESTIMONI */
+ .help-section-testimoni {
+     display: flex;
+     align-items: flex-start;
+     justify-content: space-between;
+     padding: 50px 0;
+     flex-wrap: wrap;
+ }
+
+ .image-container-testimoni {
+     max-width: 45%;
+     flex: 1 1 300px;
+     position: relative;
+ }
+
+ .image-container-testimoni img {
+     width: 100%;
+     height: auto;
+     aspect-ratio: 1 / 1;
+ }
+
+ .text-container-testimoni {
+     max-width: 45%;
+     flex: 1 1 300px;
+     margin-top: 0;
+ }
+
+ .text-container-testimoni h2 {
+     font-size: 2rem;
+     font-weight: bold;
+ }
+
+ .text-container-testimoni p {
+     font-size: 1rem;
+     margin-top: 20px;
+ }
+
+ .text-container-testimoni .btn-testimoni {
+     margin-top: 20px;
+     background-color: #4F64A9;
+     padding: 20px 20px;
+     color: #fff;
+     font-size: 1.5rem;
+     font-weight: 800;
+     border-radius: 35px;
+ }
+
+ .text-container-testimoni .btn-testimoni:hover {
+     background-color: #ffffff;
+     color: #070707;
+ }
+
+ .carousel-control-prev-testimoni,
+ .carousel-control-next-testimoni {
+     width: 40px;
+     height: 40px;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     background-color: #4F64A9;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+ }
+
+ .carousel-control-prev-testimoni {
+     left: -50px;
+ }
+
+ .carousel-control-next-testimoni {
+     right: -50px;
+ }
+
+ .carousel-icon-testimoni {
+     color: #fff;
+     font-size: 20px;
+ }
+
+ @media (max-width: 768px) {
+     .help-section-testimoni {
+         flex-direction: column;
+         align-items: flex-start;
+     }
+
+     .text-container-testimoni,
+     .image-container-testimoni {
+         max-width: 100%;
+         flex: 1 1 100%;
+     }
+
+     .image-container-testimoni {
+         margin-bottom: 20px;
+     }
+
+     .carousel-control-prev-testimoni,
+     .carousel-control-next-testimoni {
+         width: 30px;
+         height: 30px;
+         top: 50%;
+         transform: translateY(-50%);
+         background-color: #4F64A9;
+         border-radius: 50%;
+         position: absolute;
+     }
+
+     .carousel-control-prev-testimoni {
+         left: 10px;
+     }
+
+     .carousel-control-next-testimoni {
+         right: 10px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .carousel-control-prev-testimoni {
+         left: 0;
+     }
+
+     .carousel-control-next-testimoni {
+         right: 0;
+     }
+
+     .carousel-control-prev-testimoni,
+     .carousel-control-next-testimoni {
+         top: 50%;
+         transform: translateY(-50%);
+     }
+
+     .help-section-testimoni {
+         padding: 20px 0;
+     }
+
+     .text-container-testimoni {
+         max-width: 100%;
+     }
+ }
